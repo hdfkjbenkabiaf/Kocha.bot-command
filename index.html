@@ -376,7 +376,7 @@ const DATA = [
   {
     no: "四",
     name: "商工省",
-    desc: "商品・株式・資源の売買を管轄する。",
+    desc: "商品・株式・資源・生産の売買を管轄する。",
     cmds: [
       { name: "/shop", desc: "購入可能なアイテム一覧を表示する。" },
       { name: "/buy 商品名 個数", desc: "アイテムを購入する。銘柄ID＋株数を指定すると株式購入として扱われる。", ex: "例：/buy 帝国の紅茶 2　／　/buy TREX 10" },
@@ -388,6 +388,10 @@ const DATA = [
       { name: "/buyresource 資源ID 個数", desc: "資源を購入する。", ex: "例：/buyresource GOLD 5" },
       { name: "/sellresource 資源ID 個数", desc: "保有資源を売却する。/mine で採掘した資源もここで売却できる。" },
       { name: "/resourceportfolio", desc: "保有資源の一覧を確認する（/myresources も可）。" },
+      { name: "/production", desc: "資源から作成できるレシピ（銃器のグレード等）の一覧と必要素材を表示する（/production list も可）。" },
+      { name: "/production craft レシピ名", desc: "資源を消費してレシピを作成する。前段階の銃を持っている状態でのみ次段階を作成できる。作成すると次の段階が解放される。", ex: "例：/production craft コルク銃" },
+      { name: "/card", desc: "所持しているカード（株乗っ取りカード等）を確認する。ミステリーBOX等で入手できる。" },
+      { name: "/card use 対象の名前", desc: "株乗っ取りカードを使用し、対象の保有株を一定確率で奪う。失敗するとカードのみ消費される。", ex: "例：/card use 紅茶太郎" },
     ]
   },
   {
@@ -401,6 +405,8 @@ const DATA = [
       { name: "/poker 金額", desc: "ポーカー。役に応じて配当倍率が決まる。" },
       { name: "/blackjack 金額", desc: "ブラックジャック。ディーラーと合計値を競う。" },
       { name: "/slot 金額", desc: "スロット。3つ揃いで大当たり。" },
+      { name: "/syateki 回数", desc: "夏季休暇限定の射的ゲーム。コルク弾を消費して撃ち、賞金・株券・資源・怪しい弁当・称号などが確率で当たる（コルク銃の作成が必要）。", ex: "例：/syateki 5" },
+      { name: "/suikakuji 回数", desc: "夏季休暇限定のスイカくじ。くじ券を消費して引き、大当たり〜ハズレまで景品が確率で決まる。", ex: "例：/suikakuji 5" },
     ]
   },
   {
@@ -410,8 +416,10 @@ const DATA = [
     cmds: [
       { name: "/relic", desc: "歴史遺物を探索する。10秒に1回まで。稀に探索トラップが発生する（探索保険加入で治療費40%軽減）。" },
       { name: "/relicdex", desc: "歴史遺物図鑑（収集状況）を確認する。" },
+      { name: "/relicrank", desc: "/relic 実行回数の帝国民ランキング（TOP5）を表示する。" },
       { name: "/dailybox", desc: "1日1回、デイリーボックスを開封する（現金・株券・一日限定バフ・箱限定レリック等）。" },
       { name: "/tanabatadex", desc: "七夕限定レリック図鑑を確認する（イベント期間限定）。" },
+      { name: "/kakikyuukadex", desc: "夏季休暇限定レリック図鑑を確認する（イベント期間限定）。" },
     ]
   },
   {
@@ -458,6 +466,7 @@ const DATA = [
       { name: "/alarm 分", desc: "指定した分数後にアラームを鳴らす。", ex: "例：/alarm 10" },
       { name: "/dice", desc: "サイコロ（1〜6）を振る。" },
       { name: "/omikuji", desc: "本日の運勢（おみくじ）を引く。" },
+      { name: "/ad", desc: "皇帝のX（旧Twitter）アカウントの広告を表示する。" },
     ]
   },
   {
