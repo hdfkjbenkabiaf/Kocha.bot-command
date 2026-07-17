@@ -381,9 +381,12 @@ const DATA = [
       { name: "/shop", desc: "購入可能なアイテム一覧を表示する。" },
       { name: "/buy 商品名 個数", desc: "アイテムを購入する。銘柄ID＋株数を指定すると株式購入として扱われる。", ex: "例：/buy 帝国の紅茶 2　／　/buy TREX 10" },
       { name: "/stock", desc: "株式市場の全銘柄価格を表示する（/stock 銘柄ID で個別確認）。誰かが使うと全体5分間のクールダウンに入る。" },
+      { name: "/stock info 会社名", desc: "1社ずつ詳細な経営情報（株価・時価総額・時価総額順位・売上・借金・従業員満足度・今月決算・ニュース）を確認する。", ex: "例：/stock info 帝国銀行　／　/stock info TBNK" },
       { name: "/sell 銘柄ID 株数", desc: "保有株を売却する。", ex: "例：/sell TREX 10" },
       { name: "/portfolio", desc: "保有株の一覧・評価額を確認する。" },
       { name: "/keiki", desc: "帝国全体の景気動向（好景気・バブル・暴落・世界恐慌）を確認する。" },
+      { name: "/site", desc: "証券取引所ページ（全銘柄の株価・時価総額を一覧できる公式サイト）のリンクを表示する（/stock site／/取引所 も可）。" },
+      { name: "/acquisitions", desc: "企業買収・合併イベントの履歴を確認する（/買収履歴 も可）。" },
       { name: "/resource", desc: "資源市場（石炭・鉄・銀・ウラン・原油・金・ダイヤモンド等）の相場を表示する（/market も可）。" },
       { name: "/buyresource 資源ID 個数", desc: "資源を購入する。", ex: "例：/buyresource GOLD 5" },
       { name: "/sellresource 資源ID 個数", desc: "保有資源を売却する。/mine で採掘した資源もここで売却できる。" },
@@ -444,7 +447,12 @@ const DATA = [
       { name: "/titlelist", desc: "保有している称号の一覧を見る（/title list も可）。" },
       { name: "/titleset 称号名", desc: "表示する称号を設定する。" },
       { name: "/titleclear", desc: "設定中の称号を解除する。" },
+      { name: "/eventtitleset 称号名", desc: "獲得済みのイベント限定称号を設定する。", ex: "例：/eventtitleset 七夕の使者" },
+      { name: "/eventtitleclear", desc: "設定中のイベント限定称号を解除する。" },
+      { name: "/ranktitleset 称号名", desc: "獲得済みの順位称号（1〜5位のみが得られる四天王系等）を設定する。", ex: "例：/ranktitleset 四天王" },
+      { name: "/ranktitleclear", desc: "設定中の順位称号を解除する。" },
       { name: "/titledex", desc: "全称号図鑑（獲得条件・収集状況）を確認する。" },
+      { name: "/ranktitledex", desc: "順位称号図鑑（1〜5位のうちどれか1つのみ獲得可能な称号）の獲得状況を確認する。" },
     ]
   },
   {
@@ -489,6 +497,8 @@ const DATA = [
       { name: "/army kick 名前", desc: "対象を国民名簿から除名する。", restricted:true },
       { name: "/say 発言内容", desc: "皇帝として全体チャットへ発言する。", restricted:true },
       { name: "/alarm_clear", desc: "設定中の全アラームを削除する。", restricted:true },
+      { name: "/resourcereset", desc: "資源価格を新基準の初期値へ強制リセットする（皇帝専用）。", restricted:true },
+      { name: "/stockcashout", desc: "全帝国民の保有株を現在の株価で一斉現金化し、保有株をリセットする（皇帝専用の一時的な管理コマンド）。", restricted:true },
     ]
   },
 ];
